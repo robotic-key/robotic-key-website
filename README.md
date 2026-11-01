@@ -1,0 +1,1 @@
+Static responsive Group C4 project website. Preview: run `python -m http.server 8000` here, open http://localhost:8000. Publish: push these files to a GitHub repository, Settings > Pages > Deploy from branch > main > root. Replace CAD placeholder and add approved Gantt/BOM before final submission. Targets are not verified results.

@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Robotic Key senior design project: Instrumented Robot Data-Collection Cell for Physical AI at Stevens Institute of Technology.">
+  <title>Robotic Key | Instrumented Robot Data-Collection Cell for Physical AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a class="logo" href="#home">ROBOTIC <span>KEY.</span><small>PHYSICAL AI / GROUP C4</small></a>
+    <button id="menu" aria-label="Toggle menu" aria-controls="site-nav" aria-expanded="false">☰</button>
+    <nav id="site-nav"><a href="#home">Home</a><a href="#project">Project</a><a href="#design">Design</a><a href="#engineering">Engineering</a><a href="#plan">Plan</a><a href="#updates">Updates</a><a href="#team">Team</a></nav>
+  </header>
+  <main>
+    <section id="home" class="section" aria-labelledby="hero-title">
+      <div class="wrap">
+        <div class="hero-intro">
+          <div class="hero-copy">
+            <div class="eyebrow">ROBOTIC KEY <span class="eyebrow-divider">/</span> STEVENS SENIOR DESIGN 2026–27</div>
+            <h1 id="hero-title">Instrumented Robot <span>Data-Collection Cell</span> for Physical AI</h1>
+            <p class="hero-subtitle">Designed to record human key-insertion demonstrations with one GoPro Hero8 mounted on the handheld device, an ATI Gamma 6-axis F/T sensor, DYNAMIXEL motorized-gripper commands/state, two static Intel RealSense D435i environment cameras, and 6-DOF pose/orientation data for later UR5 learning and testing.</p>
+            <div class="actions"><a href="#design">Explore the design <span aria-hidden="true">↗</span></a><a href="#engineering">Engineering approach <span aria-hidden="true">→</span></a></div>
+          </div>
+          <figure class="hero-visual">
+            <div class="visual-top"><span>FIG. 01 / DEVICE ASSEMBLY</span><span>CAD CONCEPT</span></div>
+            <div class="visual-image"><img src="assets/handheld-cad.png" alt="CAD concept of the instrumented handheld assembly with camera, gripper, and handle"></div>
+            <figcaption>Current handheld CAD concept</figcaption>
+          </figure>
+        </div>
+        <div class="hero-workflow" aria-label="Data collection workflow">
+          <div class="workflow-heading"><span>01 / SYSTEM WORKFLOW</span><p>From human motion to robot evaluation</p></div>
+          <ol class="workflow-steps">
+            <li><span class="step-number">01</span><strong>Human<br>Demonstration</strong></li>
+            <li><span class="step-number">02</span><strong>Instrumented<br>Handheld</strong></li>
+            <li><span class="step-number">03</span><strong>Synchronized<br>Dataset</strong></li>
+            <li><span class="step-number">04</span><strong>UR5<br>Evaluation</strong></li>
+          </ol>
+        </div>
+        <div class="stats" aria-label="System capabilities and design targets">
+          <div><b>6-DOF</b><span>POSE TARGET</span></div>
+          <div><b>6-AXIS</b><span>FORCE / TORQUE</span></div>
+          <div><b>≤ 5 ms</b><span>SYNC TARGET</span></div>
+          <div><b>UR5</b><span>ROBOT PLATFORM</span></div>
+        </div>
+      </div>
+    </section>
+    <section id="project" class="section alt">
+      <div class="wrap">
+        <div class="eyebrow">02 / PROJECT</div>
+        <h2>From demonstration to dataset.</h2>
+        <p>Contact-rich key insertion is difficult to learn without examples of motion and interaction forces. The current design aims to capture human demonstrations in a synchronized dataset for later UR5 learning and testing; sensing performance has not yet been experimentally validated.</p>
+        <div class="architecture-heading"><span>CURRENT SENSING ARCHITECTURE</span><p>One handheld camera and two static environment cameras</p></div>
+        <ol class="architecture-flow">
+          <li><span>01 / TASK</span><strong>Human key-insertion demonstration</strong></li>
+          <li><span>02 / HANDHELD</span><strong>Instrumented handheld</strong><small>1 GoPro Hero8 mounted on the device · ATI Gamma 6-axis F/T · recorded DYNAMIXEL motorized-gripper commands/state</small></li>
+          <li><span>03 / ENVIRONMENT</span><strong>Static cameras</strong><small>2 Intel RealSense D435i cameras observing the demonstration environment</small></li>
+          <li><span>04 / DATA</span><strong>Synchronized dataset</strong><small>Visual, force/torque, gripper, and 6-DOF pose/orientation information from the sensing pipeline</small></li>
+          <li><span>05 / LATER USE</span><strong>UR5 learning/testing</strong></li>
+        </ol>
+      </div>
+    </section>
+    <section id="design" class="section">
+      <div class="wrap">
+        <div class="eyebrow">03 / DESIGN</div>
+        <h2>How we chose the collection system.</h2>
+        <p class="design-intro">The team selected a demonstration framework first, then the handheld architecture that would make it practical.</p>
+
+        <div class="design-decision">
+          <div class="decision-heading"><span>01 / FRAMEWORK</span><h3>Demonstration Framework Selection</h3></div>
+          <div class="decision-layout">
+            <article class="selected-concept">
+              <div class="concept-top"><span class="concept-code">DF-1</span><span class="selected-badge">Selected framework</span></div>
+              <h4>Instrumented Handheld with Motorized End Effector</h4>
+              <p>Selected for a favorable balance of natural manipulation, portability, direct force/torque measurement, and implementation flexibility.</p>
+              <div class="concept-tradeoff"><strong>Key tradeoff</strong><p>Operator-induced parasitic loading can affect F/T measurements. Mechanical design, calibration, compensation, and validation must address it.</p></div>
+            </article>
+            <div class="concept-alternatives">
+              <span class="alternatives-label">FRAMEWORKS COMPARED</span>
+              <ul class="concept-list">
+                <li><span>DF-2</span>GELLO Teleoperation</li>
+                <li><span>DF-3</span>SpaceMouse Teleoperation</li>
+                <li><span>DF-4</span>Vision/Pose-Only Handheld</li>
+                <li><span>DF-5</span>Kinesthetic / Hand-Guided UR5</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="design-decision">
+          <div class="decision-heading"><span>02 / HANDHELD</span><h3>Handheld Architecture Selection</h3></div>
+          <div class="decision-layout">
+            <article class="selected-concept">
+              <div class="concept-top"><span class="concept-code">HH-1</span><span class="selected-badge">Selected architecture</span></div>
+              <h4>One-Hand Motorized EE + Button</h4>
+              <p>Balances manipulation precision, F/T load-path integrity, sensor integration, modularity, manufacturability, and ease of operation.</p>
+              <div class="concept-tradeoff"><strong>Control choice</strong><p>Electrical gripper control avoids adding a mechanical trigger or linkage around the F/T sensor.</p></div>
+            </article>
+            <div class="concept-alternatives">
+              <span class="alternatives-label">ARCHITECTURES COMPARED</span>
+              <ul class="concept-list">
+                <li><span>HH-2</span>One-Hand Motorized EE + Force/Load-Cell Trigger</li>
+                <li><span>HH-3</span>Two-Hand Motorized EE</li>
+                <li><span>HH-4</span>Passive / Fixed Key Holder</li>
+                <li><span>HH-5</span>One-Hand Unmotorized EE</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <aside class="validation-callout">
+          <div><span class="validation-label">03 / VALIDATION CONFIGURATION</span><h3>HH-4 <span>Passive / Fixed Key Holder</span></h3></div>
+          <p>Useful for early validation: removing gripper-actuation and key-slip uncertainty lets the team isolate F/T sensing, gravity compensation, pose tracking, synchronization, and key-contact behavior.</p>
+        </aside>
+      </div>
+    </section>
+    <section id="engineering" class="section alt">
+      <div class="wrap">
+        <div class="eyebrow">04 / ENGINEERING</div>
+        <h2>Technical analysis &amp; engineering design.</h2>
+        <p class="engineering-intro">Each team member performs subsystem analysis to turn Phase I needs into quantitative engineering decisions. The results below are calculated or simulated; no experimental results are reported.</p>
+
+        <article class="engineering-study" aria-labelledby="study-mass-title">
+          <div class="study-header">
+            <span class="study-number">01</span>
+            <div><span class="study-type">CALCULATED STUDY / OPERATOR INTERFACE</span><h3 id="study-mass-title">Operator Ergonomics &amp; Mass Distribution</h3></div>
+            <a class="study-link" href="assets/docs/mass-distribution-analysis.pdf" target="_blank" rel="noopener noreferrer">View full analysis →</a>
+          </div>
+          <div class="study-question"><span>ENGINEERING QUESTION</span><p>How does component mass distribution affect sustained wrist and forearm loading while an operator holds the handheld system?</p></div>
+          <div class="study-subhead"><h4>Design criteria</h4><span class="evidence-tag target">PRELIMINARY TARGETS</span></div>
+          <div class="metric-grid">
+            <div><strong>&lt; 0.15 [N·m]</strong><span>Net pitch moment about wrist</span></div>
+            <div><strong>&lt; 15 [mm]</strong><span>COM offset from grip axis</span></div>
+            <div><strong>&lt; 1.0 [kg]</strong><span>Total system mass</span></div>
+            <div><strong>&lt; 10 [hr]</strong><span>Filament print time</span></div>
+          </div>
+          <div class="study-columns">
+            <div class="study-panel">
+              <h4>Method &amp; inputs</h4>
+              <p>Calculated the moment from the F/T sensor, GoPro, and servo motor relative to the grip axis, then estimated a handle shift toward the system center of mass.</p>
+              <dl class="mass-list"><div><dt>F/T sensor</dt><dd>0.255 [kg]</dd></div><div><dt>GoPro</dt><dd>0.126 [kg]</dd></div><div><dt>Servo motor</dt><dd>0.065 [kg]</dd></div></dl>
+            </div>
+            <div class="study-panel study-panel-results">
+              <div class="study-subhead"><h4>Calculated results</h4><span class="evidence-tag calculated">CALCULATED</span></div>
+              <div class="table-scroll"><table class="analysis-table"><thead><tr><th scope="col">Analyzed GoPro configuration</th><th scope="col">Initial net moment</th><th scope="col">Ideal handle shift</th></tr></thead><tbody><tr><th scope="row">45°</th><td>0.0484 [N·m]</td><td>11.1 [mm]</td></tr><tr><th scope="row">60°</th><td>0.0396 [N·m]</td><td>9.1 [mm]</td></tr></tbody></table></div>
+            </div>
+          </div>
+          <div class="study-takeaway"><span>DESIGN DECISION</span><p>The original wrist moment is already below the preliminary wrist-moment target, but moving the handle toward the calculated system center of mass can further reduce sustained wrist loading without adding mass.</p><p class="takeaway-note">A counterweight could balance the system, but the calculated counterweight would increase total mass by approximately 15–18 [%], making handle repositioning preferable.</p></div>
+          <div class="study-limits study-limits-full"><h4>Limitations / next validation</h4><p>The moment calculation considered only the F/T sensor, GoPro, and servo motor. Printed-part mass was excluded; the device was assumed level; external operating forces were not included. Confirm balance with the assembled device and representative use.</p></div>
+        </article>
+
+        <article class="engineering-study" aria-labelledby="study-structure-title">
+          <div class="study-header">
+            <span class="study-number">02</span>
+            <div><span class="study-type">SOLIDWORKS FEA / USER-SIDE INTERFACE</span><h3 id="study-structure-title">User-Side Structural &amp; F/T Interface Integrity</h3></div>
+            <a class="study-link" href="assets/docs/user-side-structural-analysis.pdf" target="_blank" rel="noopener noreferrer">View full analysis →</a>
+          </div>
+          <div class="study-question"><span>ENGINEERING QUESTION</span><p>Could operator-applied loads create excessive stress or deformation in the printed PLA handle and handle-to-sensor adapter near the ATI Gamma F/T sensor mounting interface?</p></div>
+          <p class="study-method"><strong>Method:</strong> SolidWorks FEA of the printed PLA handle and handle-to-sensor adapter under four load cases, comparing a fully fixed face with an eight-hole fixture.</p>
+          <div class="study-subhead"><h4>Structural screening criteria</h4><span class="evidence-tag target">PRELIMINARY DETAILED-DESIGN SCREENING</span></div>
+          <div class="metric-grid metric-grid-two">
+            <div><strong>≤ 12.5 [MPa]</strong><span>von Mises stress</span></div>
+            <div><strong>≤ 1.0 [mm]</strong><span>Displacement</span></div>
+          </div>
+          <p class="criteria-note">These are preliminary detailed-design screening criteria, not experimentally validated material limits or original system-level requirements.</p>
+          <div class="study-subhead"><h4>SolidWorks results</h4><span class="evidence-tag simulated">SIMULATED / NOT EXPERIMENTAL</span></div>
+          <div class="table-scroll"><table class="analysis-table fea-table"><thead><tr><th scope="col">Load case</th><th scope="col">Full-face stress</th><th scope="col">Full-face displacement</th><th scope="col">8-hole stress</th><th scope="col">8-hole displacement</th></tr></thead><tbody><tr><th scope="row">20 [N] X</th><td>2.012 [MPa]</td><td>0.2808 [mm]</td><td>5.937 [MPa]</td><td>0.3766 [mm]</td></tr><tr class="governing-row"><th scope="row">20 [N] Z</th><td>1.581 [MPa]</td><td>0.4052 [mm]</td><td>10.32 [MPa]</td><td>0.5462 [mm]</td></tr><tr><th scope="row">1.0 [N·m] Y</th><td>0.944 [MPa]</td><td>0.0612 [mm]</td><td>5.176 [MPa]</td><td>0.1025 [mm]</td></tr><tr><th scope="row">20 [N] X + 1.0 [N·m] Y</th><td>1.856 [MPa]</td><td>0.2794 [mm]</td><td>10.12 [MPa]</td><td>0.4725 [mm]</td></tr></tbody></table></div>
+          <div class="study-highlight"><span>GOVERNING SIMULATED CASE</span><strong>20 [N] Z · eight-hole fixture</strong><p>10.32 [MPa] stress <span aria-hidden="true">/</span> 0.5462 [mm] displacement</p></div>
+          <div class="study-columns">
+            <div class="study-panel"><h4>Analytical Sanity Check</h4><p>A simplified cantilever under a 20 [N] transverse load predicted approximately <strong>3.06 [MPa]</strong> bending stress and <strong>0.978 [mm]</strong> tip displacement. It checks the order of magnitude; SolidWorks represents the actual geometry and directional stiffness more realistically.</p></div>
+            <div class="study-panel"><h4>Boundary-condition sensitivity</h4><p>The fully fixed face is an intentionally stiff limiting model. The eight-hole fixture better represents discrete mounting support, but still idealizes the real bolted joint and may exaggerate local stress around fixed hole surfaces.</p></div>
+          </div>
+          <div class="study-takeaway"><span>DESIGN DECISION</span><p>All completed FEA cases remained below the preliminary structural screening limits. The results support continued prototyping, but the real eight-screw joint and actual F/T measurement response still require physical validation.</p></div>
+          <div class="study-limits study-limits-full"><h4>Limitations / next validation</h4><p>Structural behavior was analyzed. Actual electrical F/T measurement contamination has not yet been experimentally validated. Test the assembled joint and sensor response under representative operator loads.</p></div>
+        </article>
+      </div>
+    </section>
+    <section id="plan" class="section">
+      <div class="wrap">
+        <div class="eyebrow">05 / PLAN</div>
+        <h2>Schedule, materials &amp; budget.</h2>
+        <p class="plan-intro">The project moves from concept selection and detailed design toward prototype integration, physical validation, and dataset collection. The initial schedule below documents the early plan; subsystem tasks have since evolved.</p>
+        <div class="plan-heading"><div><span>01 / SCHEDULE</span><h3>Initial Project Schedule</h3></div><a href="assets/docs/gantt-initial.xlsx" download>Download original Gantt workbook →</a></div>
+        <figure class="gantt-figure"><a href="assets/images/gantt-initial.png" target="_blank" rel="noopener noreferrer" aria-label="Open the full-resolution initial project schedule"><img src="assets/images/gantt-initial.png" alt="Initial Phase I Gantt chart showing conceptual design, subsystem design, integration, and data collection tasks"></a><figcaption>Phase I project schedule developed early in the design process. Specific subsystem tasks have evolved as the system architecture matured.</figcaption></figure>
+
+        <div class="plan-heading"><div><span>02 / MATERIALS</span><h3>Current Bill of Materials</h3></div><a href="assets/docs/bom-current.xlsx" download>Download current BOM →</a></div>
+        <p class="bom-intro">A concise summary of the current draft workbook. Prices shown are reference or replacement prices per unit, not a record of project purchases. “TBD” marks unfinished acquisition, quantity, or pricing information.</p>
+        <div class="table-scroll bom-scroll"><table class="analysis-table bom-table"><thead><tr><th scope="col">Component</th><th scope="col">Qty</th><th scope="col">Status / source</th><th scope="col">Reference unit price</th><th scope="col">Project spend</th><th scope="col">BOM note</th></tr></thead><tbody>
+          <tr><th scope="row">ATI Gamma F/T sensor</th><td>1</td><td>Provided / already available</td><td>$6,015</td><td>$0</td><td>Listed replacement price; existing sensor.</td></tr>
+          <tr><th scope="row">GoPro HERO8 Black</th><td>1</td><td>In design; acquisition to verify</td><td>$164</td><td>TBD</td><td>Used-market MPB reference; handheld visual data.</td></tr>
+          <tr><th scope="row">Intel RealSense D435i</th><td>2</td><td>In design; acquisition to verify</td><td>$334 each</td><td>TBD</td><td>Official comparison-page reference; two static environment cameras.</td></tr>
+          <tr><th scope="row">DYNAMIXEL XL430-W250-T</th><td>1</td><td>In design; acquisition to verify</td><td>$27.50</td><td>TBD</td><td>ROBOTIS listed price; end-effector actuation.</td></tr>
+          <tr><th scope="row">DYNAMIXEL Shield</th><td>1</td><td>In design; acquisition to verify</td><td>$27.49</td><td>TBD</td><td>ROBOTIS listed price; Arduino interface.</td></tr>
+          <tr><th scope="row">Arduino UNO R4 Minima</th><td>1</td><td>In design; acquisition to verify</td><td>$20</td><td>TBD</td><td>Official US price reference; low-level control.</td></tr>
+          <tr><th scope="row">UR5 robot</th><td>1</td><td>Provided</td><td>—</td><td>$0</td><td>Learning/testing platform; replacement value excluded.</td></tr>
+          <tr><th scope="row">Linux machine</th><td>1</td><td>Provided</td><td>—</td><td>$0</td><td>Data logging / ROS 2 compute; model and value not specified.</td></tr>
+          <tr><th scope="row">Custom PLA components</th><td>1 each; EE tips ×2</td><td>Custom fabricated</td><td>TBD</td><td>TBD</td><td>Handle, two adapters, EE rail, and tips; rail count may change.</td></tr>
+          <tr><th scope="row">Fasteners</th><td>TBD</td><td>Lab stock / unfinished list</td><td>TBD</td><td>$0</td><td>Sizes and quantities not finalized.</td></tr>
+          <tr><th scope="row">3M 9448A Double Coated Tissue Tape</th><td>1</td><td>In use; size/source to verify</td><td>TBD</td><td>TBD</td><td>Price depends on roll dimensions and vendor.</td></tr>
+          <tr><th scope="row">USB-C to USB-A USB 3.0 cables</th><td>4</td><td>Example identified; product TBD</td><td>TBD</td><td>TBD</td><td>Planned 3–10 [ft] cables; exact model/price not locked.</td></tr>
+          <tr><th scope="row">Externally powered USB hubs</th><td>2</td><td>Example identified; product TBD</td><td>TBD</td><td>TBD</td><td>Exact model/price not locked.</td></tr>
+          <tr><th scope="row">Key / lock / test-rig materials</th><td>TBD</td><td>TBD</td><td>TBD</td><td>TBD</td><td>Hardware and quantities not yet selected.</td></tr>
+        </tbody></table></div>
+        <p class="bom-note">The workbook contains the full item-by-item component notes and pricing-source URLs. No current project-spend total is stated because acquisition details and several BOM items remain unfinished.</p>
+
+        <div class="budget-panel"><div><span>03 / BUDGET CONTEXT</span><h3>Original project budget estimate</h3></div><div><p><strong>Original project budget estimate: approximately $2,000–$5,000, lab-supported.</strong></p><p>Many major components are existing ARM Lab resources. Replacement value ≠ project expenditure; the current BOM does not yet support a finalized project-spend total.</p></div></div>
+      </div>
+    </section>
+    <section id="updates" class="section alt">
+      <div class="wrap">
+        <div class="eyebrow">06 / UPDATES</div>
+        <h2>Bi-weekly project progress / blog.</h2>
+        <p class="updates-intro">Dated notes on design decisions, documentation, and upcoming work.</p>
+        <div class="updates-list">
+          <article class="update-post">
+            <time datetime="2026-11-01">NOVEMBER 1, 2026</time><h3>Technical Analysis &amp; Project Documentation</h3>
+            <div class="update-columns"><div><h4>Completed</h4><ul><li>Integrated two completed subsystem technical analyses into the website.</li><li>Documented operator ergonomics / mass-distribution analysis.</li><li>Documented user-side structural FEA and analytical comparison.</li><li>Incorporated the current handheld CAD.</li><li>Documented the two-static-camera RealSense D435i environment-sensing configuration.</li><li>Developed the current project BOM.</li></ul></div><div><h4>Next</h4><ul><li>Integrate remaining subsystem analyses as completed.</li><li>Continue physical prototype integration.</li><li>Finalize test-rig components.</li><li>Validate sensing, synchronization, and F/T behavior experimentally.</li></ul></div></div>
+          </article>
+          <article class="update-post"><time datetime="2026-10-28">OCTOBER 28, 2026</time><h3>Handheld CAD &amp; Test Preparation</h3><p>Added a GoPro Hero8 model, mounting clips and field-of-view references to the handheld CAD; obtained grip tape for the end-effector tips.</p><p><strong>Next:</strong> verify key grasp, determine camera placement, build the lock test rig, improve the F/T-to-tool adapter and plan marker locations.</p></article>
+          <div class="updates-archive"><article><span>PHASE I · 2026</span><h3>Concept selection</h3><p>Compared collection frameworks and selected the instrumented handheld with motorized actuation.</p></article><article><time datetime="2026-09">SEPTEMBER 2026</time><h3>Project kickoff</h3><p>Established sensing requirements and researched demonstration-collection methods.</p></article></div>
+        </div>
+      </div>
+    </section>
+    <section id="team" class="section">
+      <div class="wrap"><div class="eyebrow">07 / TEAM</div><h2>Robotic Key.</h2><p class="team-members">Mikaela Christie · Matthew Ha · Timothy Kennedy · Rena Kim · Max Yao</p><div class="team-context"><div><span>ADVISOR</span><strong>Prof. Long Wang</strong></div><div><span>PROJECT CLIENT / LAB</span><strong>Advanced Robot Manipulators (ARM) Lab</strong><small>Stevens Institute of Technology</small></div></div></div>
+    </section>
+  </main>
+  <footer><div class="wrap">STEVENS INSTITUTE OF TECHNOLOGY · GROUP C4 · 2026–27 <a href="#home">BACK TO TOP ↑</a></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>
