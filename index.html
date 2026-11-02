@@ -174,6 +174,31 @@
           <div class="study-takeaway"><span>DESIGN DECISION</span><p>All completed FEA cases remained below the preliminary structural screening limits. The results support continued prototyping, but the real eight-screw joint and actual F/T measurement response still require physical validation.</p></div>
           <div class="study-limits study-limits-full"><h4>Limitations / next validation</h4><p>Structural behavior was analyzed. Actual electrical F/T measurement contamination has not yet been experimentally validated. Test the assembled joint and sensor response under representative operator loads.</p></div>
         </article>
+
+        <article class="engineering-study" aria-labelledby="study-vision-title">
+          <div class="study-header">
+            <span class="study-number">03</span>
+            <div><span class="study-type">MATTHEW HA / PRELIMINARY SUBSYSTEM ANALYSIS</span><h3 id="study-vision-title">Static Vision &amp; Test-Rig Analysis</h3></div>
+            <a class="study-link" href="assets/docs/static-camera-test-rig-analysis.pdf" target="_blank" rel="noopener noreferrer">View full analysis →</a>
+          </div>
+          <div class="study-question"><span>ENGINEERING QUESTION</span><p>How can the static vision system provide useful coverage of the key-insertion workspace, and what requirements should guide the interchangeable lock test rig?</p></div>
+          <p class="study-method"><strong>Scope &amp; method:</strong> The report examines static environmental camera coverage, camera-to-lock geometry, and nominal image density. It also develops an interchangeable lock/test-rig concept, tipping-stability design relationships, and material-cost planning.</p>
+          <div class="study-subhead"><h4>Camera analysis inputs</h4><span class="evidence-tag calculated">PRELIMINARY ANALYSIS</span></div>
+          <div class="metric-grid vision-metrics">
+            <div><strong>0.55 [m]</strong><span>Analyzed camera-to-lock distance</span></div>
+            <div><strong>69.4 [°]</strong><span>D435i RGB horizontal FoV</span></div>
+            <div><strong>42.5 [°]</strong><span>D435i RGB vertical FoV</span></div>
+            <div><strong>1920 × 1080 [pixels]</strong><span>RGB resolution</span></div>
+          </div>
+          <div class="study-highlight"><span>CALCULATED PRELIMINARY RESULTS</span><strong>0.762 × 0.428 [m] visible area · 2.52 [pixels/mm] nominal pixel density</strong><p>These calculated values exceed the report's proposed preliminary workspace criterion of 0.40 × 0.35 [m] and nominal pixel-density criterion of 2.0 [pixels/mm]. They are not experimentally validated camera performance.</p></div>
+          <div class="study-columns">
+            <div class="study-panel"><h4>Test-rig concept</h4><p>A rigid support structure would hold a replaceable lock module with adjustable positioning. Cameras would use separate rigid mounts. Mounting hardware remains under development.</p></div>
+            <div class="study-panel"><h4>Tipping-stability framework</h4><p>The report defines stability as resisting moment divided by applied moment and proposes a safety-factor target of <strong>≥ 1.5</strong>. This target has not yet been demonstrated.</p></div>
+          </div>
+          <div class="study-takeaway"><span>DESIGN TAKEAWAY</span><p>The preliminary camera calculation supports continued layout development; the interchangeable test rig still needs defined geometry, loads, and physical validation.</p></div>
+          <div class="study-limits study-limits-full"><h4>Limitations / next validation</h4><p>Final rig mass, base width, applied insertion force, load height, and finalized material cost remain unresolved. Test-rig stability and material cost are pending design validation.</p></div>
+          <p class="study-method study-current-context"><strong>Current system context:</strong> Robotic Key now uses two static D435i cameras. This individual report is retained as preliminary subsystem analysis and will be revised as the final two-camera arrangement and test-rig geometry are finalized.</p>
+        </article>
       </div>
     </section>
     <section id="plan" class="section">

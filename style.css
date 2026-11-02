@@ -136,6 +136,7 @@
 .metric-grid.metric-grid-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .metric-grid > div { background: #edf3f5; border-left: 3px solid #ed7c45; padding: 15px; min-width: 0; }
 .metric-grid strong { display: block; color: #18313f; font: 700 clamp(17px, 2vw, 23px)/1.2 'Space Grotesk', Arial, sans-serif; white-space: nowrap; }
+.vision-metrics strong { white-space: normal; overflow-wrap: anywhere; }
 .metric-grid span { display: block; color: #5d727e; font-size: 11px; line-height: 1.4; margin-top: 8px; }
 .study-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 20px; }
 .study-panel { background: #f7f9fa; border: 1px solid #dbe5e9; padding: 24px; min-width: 0; }
@@ -163,6 +164,7 @@
 .study-highlight p { color: #18313f; font-size: 14px; margin: 3px 0 0; }
 .study-limits { border-top: 1px solid #d4e0e5; padding-top: 18px; }
 .study-limits p { font-size: 13px; line-height: 1.65; margin: 8px 0 0; }
+.study-current-context { margin: 20px 0 0; }
 @media (max-width: 850px) {
   .study-header { grid-template-columns: 48px minmax(0, 1fr); }
   .study-link { grid-column: 2; justify-self: start; }
