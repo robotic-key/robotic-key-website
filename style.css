@@ -206,6 +206,8 @@
 .gantt-figure a, .gantt-figure img { display: block; }
 .gantt-figure img { width: 100%; height: auto; }
 .gantt-figure figcaption { color: #5d727e; font-size: 13px; line-height: 1.5; padding: 14px 4px 3px; }
+.gantt-download { display: inline-block; color: #ab4b1e; border-bottom: 1px solid #ed7c45; font-size: 13px; font-weight: 700; padding: 5px 0; margin-top: 16px; }
+.gantt-download:hover { color: #18313f; }
 #plan .bom-intro, #plan .bom-note { color: #5d727e; font-size: 13px; line-height: 1.6; max-width: 900px; margin: 0 0 15px; }
 #plan .bom-note { margin: 12px 0 0; }
 .bom-scroll { border: 1px solid #d4e0e5; }
